@@ -1,0 +1,42 @@
+{
+  "name": "Indoor Studio",
+  "short_name": "IStudio",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "start_url": "/",
+  "description": "Indoor Studio is a Next.js application template for building modern web applications.",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/homepage-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshots/homepage-desktop.png",
+      "sizes": "2560x1600",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+music",
+      "url": "http://localhost:3000/handle-protocol?url==%s"
+    }
+  ]
+}
