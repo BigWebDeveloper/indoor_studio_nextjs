@@ -5,7 +5,8 @@
   "background_color": "#ffffff",
   "start_url": "/",
   "description": "Indoor Studio is a Next.js application template for building modern web applications.",
-  "theme_color": "#0f172a",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "theme_color": "#d15807",
   "orientation": "portrait",
   "icons": [
     {
@@ -36,7 +37,7 @@
   "protocol_handlers": [
     {
       "protocol": "web+music",
-      "url": "http://localhost:3000/handle-protocol?url==%s"
+      "url": "/handle-protocol?url==%s"
     }
   ]
 }

@@ -1,32 +1,38 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
-export default function HandleProtocolClient() {
+export default function HandleProtocolPage() {
   const searchParams = useSearchParams();
   const [trackName, setTrackName] = useState<string | null>(null);
-
   useEffect(() => {
-    const url = searchParams.get("url");
-    if (url) {
-      try {
-        const parsed = new URL(url);
-        const name = parsed.searchParams.get("name");
-        setTrackName(name);
-      } catch (err) {
-        console.error("Invalid protocol URL:", url);
-      }
+    const rawUrl = searchParams.get("url"); // e.g. web+music://be-mine
+    console.log(rawUrl);
+    if (!rawUrl) return;
+
+    try {
+      const cleaned = rawUrl.replace(/^web\+music:\/\//, "").replace(/\/$/, "");
+
+      setTrackName(decodeURIComponent(cleaned));
+    } catch (err) {
+      setTrackName(null);
     }
+
+    console.log();
   }, [searchParams]);
 
   return (
-    <div>
+    <main className="min-h-screen flex flex-col items-center justify-center text-center">
+      <h1 className="text-2xl font-bold">Handle Protocol</h1>
       {trackName ? (
-        <p>Now playing: {trackName}</p>
+        <p className="text-lg mt-4">
+          🎵 Now Playing: <strong>{` ${trackName}.mp3`}</strong>
+          <audio src={`${trackName}.mp3`} controls autoPlay className="mt-4" />
+        </p>
       ) : (
-        <p>Loading or invalid track data...</p>
+        <p className="mt-4 text-gray-500">Loading...</p>
       )}
-    </div>
+    </main>
   );
 }

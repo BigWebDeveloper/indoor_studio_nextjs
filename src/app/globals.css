@@ -26,6 +26,17 @@ body {
   @apply bg-background text-foreground font-poppins;
 }
 
+@media (display-mode: window-controls-overlay) {
+  body {
+    padding-top: env(titlebar-area-height, 40px);
+  }
+}
+
+.customTitleBar {
+  height: "env(titlebar-area-height, 40px)";
+  padding-left: "env(titlebar-area-x, 0px)";
+  padding-top: "env(titlebar-area-y, 0px)";
+}
 @keyframes scaleInOut {
   0%,
   100% {
