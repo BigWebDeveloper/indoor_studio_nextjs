@@ -26,7 +26,7 @@ export default function Header() {
       <nav
         className={` ${
           handleNavToggle ? "right-0" : "-right-5/11"
-        } max-md:bg-black/60 z-100 max-md:backdrop-blur-xl max-md:fixed max-md:h-[calc(100vh-100px)] max-md:w-5/11 top-20 transition-all`}
+        } max-md:bg-black/60 z-100 max-md:backdrop-blur-xl max-md:fixed max-md:h-[calc(100vh-80px)] max-md:w-5/11 top-20 transition-all`}
       >
         <ul className="flex gap-x-1 max-md:flex-col max-md:items-center  text-black">
           {navLink.map(({ href, name }, index) => {
